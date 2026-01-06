@@ -34,6 +34,12 @@ def main():
     signed_transaction = w3.eth.account.sign_transaction(transaction, private_key=PRIVATE_KEY)
     print(signed_transaction)
 
+    tx_hash = w3.eth.send_raw_transaction(signed_transaction.raw_transaction)
+    print(f"My TX hash is {tx_hash}")
+
+    tx_receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
+    print(f"Contract deployed at address: {tx_receipt.contractAddress}")
+
 
 if __name__ == "__main__":
     main()
