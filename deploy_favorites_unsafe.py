@@ -1,4 +1,4 @@
-from vyper import compile_code
+from vyper import compile_code  # type: ignore
 from web3 import Web3
 from dotenv import load_dotenv
 import os
